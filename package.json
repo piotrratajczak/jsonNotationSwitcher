@@ -4,6 +4,7 @@
   "description": "switching recursively json props notation",
   "main": "index.js",
   "scripts": {
+    "lint": "./node_modules/.bin/eslint . --fix",
     "test": "mocha"
   },
   "keywords": [
@@ -24,6 +25,16 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.4.0",
     "mocha": "^3.5.3"
+  },
+  "dependencies": {
+    "camelcase-keys-recursive": "^0.8.2",
+    "camelcasetodjango": "^0.1.10"
   }
 }
