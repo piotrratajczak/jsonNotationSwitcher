@@ -1,5 +1,5 @@
 const assert = require('assert');
-const notationSwitcher = require('../');
+const switchNotation = require('../');
 
 describe('jsonNotationSwitcher', () => {
   const camelCaseObj = {
@@ -113,38 +113,42 @@ describe('jsonNotationSwitcher', () => {
   };
 
   it("switch camelCase to '_'", () => {
-    assert.deepEqual(notationSwitcher.switchNotation(camelCaseObj, '_'), djangoObj);
+    assert.deepEqual(switchNotation(camelCaseObj, '_'), djangoObj);
   });
 
   it('switch camelCase to custom delimiter notation', () => {
-    assert.deepEqual(notationSwitcher.switchNotation(camelCaseObj, '@'), customObj);
+    assert.deepEqual(switchNotation(camelCaseObj, '@'), customObj);
   });
 
   it("switch '_' to camelCase", () => {
-    assert.deepEqual(notationSwitcher.switchNotation(djangoObj, 'camelCase'), camelCaseObj);
+    assert.deepEqual(switchNotation(djangoObj, 'camelCase'), camelCaseObj);
   });
 
   it("switch '_' to custom notation", () => {
-    assert.deepEqual(notationSwitcher.switchNotation(djangoObj, '@'), customObj);
+    assert.deepEqual(switchNotation(djangoObj, '@'), customObj);
   });
 
   it('switch custom notation to camelCase', () => {
-    assert.deepEqual(notationSwitcher.switchNotation(customObj, 'camelCase'), camelCaseObj);
+    assert.deepEqual(switchNotation(customObj, 'camelCase'), camelCaseObj);
   });
 
   it("switch custom notation to '_'", () => {
-    assert.deepEqual(notationSwitcher.switchNotation(customObj, '_'), djangoObj);
+    assert.deepEqual(switchNotation(customObj, '_'), djangoObj);
   });
 
   it('switch custom notation to another custom notation', () => {
-    assert.deepEqual(notationSwitcher.switchNotation(customObj, '-'), customObj2);
+    assert.deepEqual(switchNotation(customObj, '-'), customObj2);
   });
 
   it('switch custom notation to another custom notation 2', () => {
-    assert.deepEqual(notationSwitcher.switchNotation(customObj2, '@'), customObj);
+    assert.deepEqual(switchNotation(customObj2, '@'), customObj);
   });
 
   it('switch custom notation with double delimiter to another custom notation', () => {
-    assert.deepEqual(notationSwitcher.switchNotation(doubleDelimiter, '@'), customObj);
+    assert.deepEqual(switchNotation(doubleDelimiter, '@'), customObj);
+  });
+
+  it('switch custom notation to another custom notation with double delimiter', () => {
+    assert.deepEqual(switchNotation(customObj, '--'), doubleDelimiter);
   });
 });
