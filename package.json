@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "camelcase-keys-recursive": "^0.8.2",
-    "camelcasetodjango": "^0.1.10"
+    "camelcasetodjango": "^0.1.11"
   }
 }
